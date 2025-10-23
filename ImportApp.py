@@ -65,8 +65,8 @@ def validate_data(df, config):
     check_results = {}
     error_locations = []  # List of (row_index, column_name) for errors
 
-    # Debug: Log the loaded columns
-    st.write(f"Debug: Loaded columns for sheet '{config.get('sheet_name', 'unknown')}': {list(df.columns)}")
+    # Log the loaded columns
+    st.write(f"Loaded columns for sheet '{config.get('sheet_name', 'unknown')}': {list(df.columns)}")
 
     # Check 1: Required columns with detailed error message
     missing_cols = set(config['required_cols']) - set(df.columns)
@@ -203,7 +203,7 @@ if uploaded_file:
             st.dataframe(styler)
 
         # Publish button - only if valid
-        if all_valid and st.button("Publish to SQL"):
+        if all_valid and st.button("Save"):
             try:
                 for sheet in sheets:
                     table_name = sheet['table_name']
