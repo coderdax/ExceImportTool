@@ -149,7 +149,7 @@ def highlight_errors(df, error_locations):
     return styler
 
 # Streamlit UI
-st.title("Excel Data Import App")
+st.title("DataDock")
 
 # Step 1: Select dataset
 dataset = st.selectbox("Select Dataset", list(DATASETS.keys()))
