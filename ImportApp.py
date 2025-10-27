@@ -65,8 +65,8 @@ def validate_data(df, config):
     check_results = {}
     error_locations = []  # List of (row_index, column_name) for errors
 
-    # Log the loaded columns
-    st.write(f"Loaded columns for sheet '{config.get('sheet_name', 'unknown')}': {list(df.columns)}")
+    # Debug: Log the loaded columns
+    st.write(f"Debug: Loaded columns for sheet '{config.get('sheet_name', 'unknown')}': {list(df.columns)}")
 
     # Check 1: Required columns with detailed error message
     missing_cols = set(config['required_cols']) - set(df.columns)
@@ -149,7 +149,10 @@ def highlight_errors(df, error_locations):
     return styler
 
 # Streamlit UI
-st.title("DataDock")
+# Add logo at the top
+st.image("logo.jpg", width=300)  # Adjust width as needed (e.g., 100-300 pixels)
+
+# st.title("DataDock")
 
 # Step 1: Select dataset
 dataset = st.selectbox("Select Dataset", list(DATASETS.keys()))
